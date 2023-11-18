@@ -213,6 +213,12 @@
             android:title="@string/tap_to_wake"
             android:summary="@string/tap_to_wake_summary"/>
 
+	<SwitchPreference
+            android:key="touch_polling"
+            android:title="@string/touch_polling_title"
+            android:summary="@string/touch_polling_summary"
+            settings:controller="com.android.settings.display.TouchPollingPreferenceController" />
+
         <ListPreference
             android:key="theme"
             android:title="@string/device_theme"
