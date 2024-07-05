@@ -37,7 +37,8 @@
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
         settings:searchable="false"
-        settings:controller="co.aospa.settings.deviceinfo.firmwareversion.ParanoidAndroidVersionPreferenceController"/>
+        settings:controller="co.aospa.settings.deviceinfo.firmwareversion.ParanoidAndroidVersionPreferenceController"
+	settings:layout="@layout/pengu_card_sub_mid"/>
 
     <!-- Security patch -->
     <Preference
@@ -46,15 +47,7 @@
         settings:enableCopying="true"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.SecurityPatchLevelPreferenceController"/>
 
-    <!-- Mainline module version -->
-    <Preference
-        android:key="module_version"
-        android:title="@string/module_version"
-        android:summary="@string/summary_placeholder"
-        settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.MainlineModuleVersionPreferenceController"/>
-
-    <!-- Baseband -->
+    <!-- More Info -->
     <Preference
         android:key="base_band"
         android:title="@string/baseband_version"
