@@ -28,7 +28,8 @@
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
         settings:searchable="false"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionDetailPreferenceController"/>
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionDetailPreferenceController"
+        settings:layout="@layout/pengu_card_sub_top"/>
 
     <!-- Paranoid Android version -->
     <Preference
@@ -45,33 +46,15 @@
         android:key="security_key"
         android:title="@string/security_patch"
         settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.SecurityPatchLevelPreferenceController"/>
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.SecurityPatchLevelPreferenceController"
+        settings:layout="@layout/pengu_card_sub_mid"/>
 
     <!-- More Info -->
     <Preference
-        android:key="base_band"
-        android:title="@string/baseband_version"
-        android:summary="@string/summary_placeholder"
-        android:selectable="false"
-        settings:enableCopying="true"
-        settings:controller="co.aospa.settings.deviceinfo.firmwareversion.ParanoidBasebandVersionPreferenceController"/>
-
-    <!-- Kernel -->
-    <Preference
-        android:key="kernel_version"
-        android:title="@string/kernel_version"
-        android:summary="@string/summary_placeholder"
-        android:selectable="false"
-        settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.KernelVersionPreferenceController"/>
-
-    <!-- Build -->
-    <Preference
-        android:key="os_build_number"
-        android:title="@string/build_number"
-        android:summary="@string/summary_placeholder"
-        android:selectable="false"
-        settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.SimpleBuildNumberPreferenceController"/>
+       android:key="more_info"
+       android:title="@string/more_info"
+       android:summary="@string/more_info_summary"
+       android:fragment="com.android.settings.deviceinfo.firmwareversion.moreinfo.MoreInfo"
+       settings:layout="@layout/pengu_card_sub_bot"/>
 
 </PreferenceScreen>
