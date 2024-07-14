@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 The Android Open Source Project
+ * Copyright (C) 2019 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,30 +17,29 @@
 package com.android.settings.deviceinfo.firmwareversion.moreinfo;
 
 import android.content.Context;
-import android.content.pm.UserInfo;
-import android.os.UserHandle;
-import android.os.UserManager;
+import android.os.SystemProperties;
 
 import com.android.settings.R;
-import com.android.settings.Utils;
 import com.android.settings.core.BasePreferenceController;
 
-public class MultiUserPreferenceController extends BasePreferenceController {
+public class BuildDatePreferenceController extends BasePreferenceController {
 
-    public MultiUserPreferenceController(Context context, String preferenceKey) {
-        super(context, preferenceKey);
+    private static final String TAG = "BuildDatePreferenceController";
+
+    private static final String KEY_BUILD_DATE_PROP = "ro.build.date";
+
+    public BuildDatePreferenceController(Context context, String key) {
+        super(context, key);
     }
 
     @Override
     public int getAvailabilityStatus() {
-        return (UserHandle.MU_ENABLED && UserManager.supportsMultipleUsers()
-                && !Utils.isMonkeyRunning()) ? AVAILABLE : UNSUPPORTED_ON_DEVICE;
+        return AVAILABLE;
     }
 
     @Override
     public CharSequence getSummary() {
-        UserManager um = mContext.getSystemService(UserManager.class);
-        UserInfo info = um.getUserInfo(UserHandle.myUserId());
-        return mContext.getString(R.string.users_summary, info.name);
+        return SystemProperties.get(KEY_BUILD_DATE_PROP,
+                mContext.getString(R.string.unknown));
     }
 }

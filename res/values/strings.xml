@@ -2749,6 +2749,8 @@
     <string name="sound_settings">Sound &amp; vibration</string>
     <!-- DO NOT TRANSLATE Summary placeholder -->
     <string name="summary_placeholder" translatable="false">&#160;</string>
+    <!-- About phone screen,  setting option name  [CHAR LIMIT=40] -->
+    <string name="build_date">Build date</string>
     <!-- DO NOT TRANSLATE Summary placeholder reserving 2 lines -->
     <string name="summary_two_lines_placeholder" translatable="false">&#160;\n&#160;</string>
 
