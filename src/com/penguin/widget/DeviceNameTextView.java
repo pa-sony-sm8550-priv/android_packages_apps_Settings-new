@@ -5,8 +5,11 @@ import android.os.Build;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import androidx.appcompat.widget.AppCompatTextView;
+import android.os.SystemProperties;
 
 public class DeviceNameTextView extends AppCompatTextView {
+    
+    private static final String PRODUCT_MARKETNAME_PROP = "ro.product.marketname";
 
     public DeviceNameTextView(Context context) {
         super(context);
@@ -24,7 +27,7 @@ public class DeviceNameTextView extends AppCompatTextView {
     }
 
     private void init(Context context) {
-        String deviceName = Settings.Global.getString(context.getContentResolver(), Settings.Global.DEVICE_NAME);
+        String deviceName = SystemProperties.get(PRODUCT_MARKETNAME_PROP);
         if (deviceName == null) {
             deviceName = Build.MODEL;
         }
