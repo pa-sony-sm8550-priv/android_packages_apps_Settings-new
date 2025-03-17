@@ -25,7 +25,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
 @SearchIndexable
-public class MoreInfo extends DashboardFragment {
+public class Versionstuff extends DashboardFragment {
 
     @Override
     protected int getPreferenceScreenResId() {
