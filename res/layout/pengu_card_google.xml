@@ -87,6 +87,7 @@
                 android:layout_height="24dp"
                 android:layout_gravity="center"
                 android:src="@drawable/pengu_chevron_right" />
+
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
