@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 The Android Open Source Project
+ * Copyright (C) 2019 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,33 +14,26 @@
  * limitations under the License.
  */
 
-package com.android.settings.deviceinfo.firmwareversion.moreinfo;
+package com.android.settings.deviceinfo.firmwareversion;
 
 import android.content.Context;
-import android.content.pm.UserInfo;
-import android.os.UserHandle;
-import android.os.UserManager;
 
-import com.android.settings.R;
-import com.android.settings.Utils;
 import com.android.settings.core.BasePreferenceController;
+import com.android.settingslib.DeviceInfoUtils;
 
-public class MultiUserPreferenceController extends BasePreferenceController {
+public class KernelVersionPreferenceController extends BasePreferenceController {
 
-    public MultiUserPreferenceController(Context context, String preferenceKey) {
+    public KernelVersionPreferenceController(Context context, String preferenceKey) {
         super(context, preferenceKey);
     }
 
     @Override
     public int getAvailabilityStatus() {
-        return (UserHandle.MU_ENABLED && UserManager.supportsMultipleUsers()
-                && !Utils.isMonkeyRunning()) ? AVAILABLE : UNSUPPORTED_ON_DEVICE;
+        return AVAILABLE;
     }
 
     @Override
     public CharSequence getSummary() {
-        UserManager um = mContext.getSystemService(UserManager.class);
-        UserInfo info = um.getUserInfo(UserHandle.myUserId());
-        return mContext.getString(R.string.users_summary, info.name);
+        return DeviceInfoUtils.getFormattedKernelVersion(mContext);
     }
 }
