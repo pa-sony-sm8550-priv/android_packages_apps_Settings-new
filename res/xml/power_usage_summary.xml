@@ -54,6 +54,13 @@
         settings:layout="@layout/pengu_card_sub_mid" />
 
     <Preference
+        android:key="charging_control"
+        android:title="@string/charging_control_title"
+        android:summary="@string/charging_control_summary"
+        android:fragment="co.aospa.settings.lineage.health.ChargingControlSettings"
+        settings:controller="co.aospa.settings.lineage.health.ChargingControlPreferenceController" />
+
+    <Preference
         android:fragment="com.android.settings.fuelgauge.SmartBatterySettings"
         android:key="smart_battery_manager"
         android:title="@string/smart_battery_manager_title"
